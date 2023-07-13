@@ -24,7 +24,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Created by wangting3 on 2019/2/12.
+ * Created by  on 2019/2/12.
  * 定时任务
  */
 @Component
@@ -255,7 +255,7 @@ public class AutoRunTask {
             String outInfo = strB.toString();
             System.out.println("nuwa 信息不一致:"+outInfo);
             //收件人
-            String toUsers = "baibq@ifeng.com;wang_huihui@ifeng.com;guobj@ifeng.com;zhaodan@ifeng.com";
+            String toUsers = "test@test.com";
             //只发一份邮件
             String tmpKey = "mutaEx:cacheinfo:sendmail:"+DateTimeUtils.getDateFlag();
             if(redisService.setnx(tmpKey,"1") == 1){

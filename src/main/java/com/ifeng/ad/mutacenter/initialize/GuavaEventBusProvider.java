@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 
 /**
  * 可以当生产-消费-存储模式使用，存储队列使用LinkedBlockingQueue
- * Created by wangting3 on 2019/1/23.
+ * Created by  on 2019/1/23.
  */
 @Configuration
 public class GuavaEventBusProvider {

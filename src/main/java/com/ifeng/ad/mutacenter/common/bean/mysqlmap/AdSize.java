@@ -1,7 +1,7 @@
 package com.ifeng.ad.mutacenter.common.bean.mysqlmap;
 
 /**
- * Created by wangting3 on 2019/1/29.
+ * Created by  on 2019/1/29.
  */
 public class AdSize {
     public String sizeId;

@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * mysql数据库查询类
- * Created by wangting3 on 2019/1/16.
+ * Created by  on 2019/1/16.
  */
 public interface MysqlService {
     /**

@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by wangting3 on 2019/1/27.
+ * Created by  on 2019/1/27.
  */
 @Configuration
 public class KafkaProvider {

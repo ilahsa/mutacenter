@@ -27,7 +27,7 @@ import java.net.UnknownHostException;
 import java.util.Date;
 
 /**
- * 项目描述: 路由Verticle
+ * 项目描述:
  */
 public abstract class RouterVerticle extends AbstractVerticle implements Constant {
 

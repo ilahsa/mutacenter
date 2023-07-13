@@ -4,7 +4,7 @@ import org.junit.*;
 import java.io.IOException;
 
 /**
- * Created by wangting3 on 2019/1/23.
+ * Created by  on 2019/1/23.
  */
 public class HttpTest {
     private OkHttpClient okHttpClient;

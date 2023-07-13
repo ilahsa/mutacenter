@@ -25,7 +25,7 @@ import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
 /**
- * Created by wangting3 on 2019/1/22.
+ * Created by  on 2019/1/22.
  */
 @Component
 public class DealMysql2Redis implements Constant {

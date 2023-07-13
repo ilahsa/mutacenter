@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * Created by wangting3 on 2019/1/15.
+ * Created by  on 2019/1/15.
  */
 @RunWith(SpringJUnit4ClassRunner.class) /*添加SpringJUnit支持，引入Spring-Test框架*/
 @SpringBootTest(classes = Application.class) /*指定Springboot启动类启动*/

@@ -3,7 +3,7 @@ import com.google.common.eventbus.Subscribe;
 import org.junit.Test;
 
 /**
- * Created by wangting3 on 2019/1/22.
+ * Created by  on 2019/1/22.
  */
 public class GuavaEventBus {
     @Test

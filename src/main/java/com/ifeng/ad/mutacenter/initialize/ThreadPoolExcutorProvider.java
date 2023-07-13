@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by wangting3 on 2019/1/24.
+ * Created by  on 2019/1/24.
  */
 @Configuration
 public class ThreadPoolExcutorProvider {

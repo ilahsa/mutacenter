@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 
 /**
- * Created by wangting3 on 2019/1/24.
+ * Created by  on 2019/1/24.
  */
 public class SqlTextTest {
     public static void main(String[] args) {

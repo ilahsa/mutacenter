@@ -41,7 +41,7 @@ import com.ifeng.ad.mutacenter.verticles.KafkaVerticle;
  *                      
  *                      
  * 
- * @author zhangfei
+ * @author
  * @date 2019年2月19日
  */
 @Component

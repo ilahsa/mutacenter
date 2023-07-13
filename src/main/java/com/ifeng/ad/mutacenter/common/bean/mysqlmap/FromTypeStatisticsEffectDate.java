@@ -1,8 +1,7 @@
 package com.ifeng.ad.mutacenter.common.bean.mysqlmap;
 
 /**
- * 过去一定时间的流量响应情况
- * 具体过去几天，根据志鹏老师的算出来的数来定
+
  */
 public class FromTypeStatisticsEffectDate {
     private String platformId;

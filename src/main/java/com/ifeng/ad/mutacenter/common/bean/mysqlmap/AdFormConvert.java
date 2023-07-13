@@ -2,7 +2,7 @@ package com.ifeng.ad.mutacenter.common.bean.mysqlmap;
 
 /**
  * 广告形式转换
- * Created by guobj@ifeng.com on 2021/11/4.
+ * Created by on 2021/11/4.
  */
 public class AdFormConvert {
     private String id;

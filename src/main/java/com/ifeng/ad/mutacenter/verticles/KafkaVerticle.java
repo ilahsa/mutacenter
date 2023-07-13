@@ -22,9 +22,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * kafka，
- * 1 监听管理端的通信topic
- * 2 执行写任务到muta的topic
+
  */
 @Component
 public class KafkaVerticle extends AbstractVerticle implements Constant {

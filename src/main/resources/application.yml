@@ -12,15 +12,15 @@ spring:
         max-idle: 20
         redis_test_on_borrow: true
     cluster:
-      nodes: 10.90.18.3:6379,10.90.18.4:6379,10.90.18.5:6379,10.90.18.6:6379,10.90.18.7:6379,10.80.5.148:6379,10.80.8.148:6379,10.90.114.25:6379
+      nodes: 10.90.18.3:6379,10.90.18.4:6379
       connection-timeout: 200
       socket-timeout: 200
       max-redirects: 3
-      pwd: md34fjmhsJHhgmnjka678i
+      pwd: test
     cloud-cluster:
       host: 10.61.223.6
       port: 81
-      pwd: md34fjmhsJHhgmnjka678i
+      pwd: test
       connection-timeout: 1000
       pool:
         max-wait-millis: 5000
@@ -51,9 +51,9 @@ spring:
   mail:
     username: ad-tech-ext
     password: Ggxt20220315
-    host: mail.staff.ifeng.com
-    from: ad-tech-ext@ifeng.com
-    to: baibq@ifeng.com;wang_huihui@ifeng.com;yuanyj1@ifeng.com;zhaodan@ifeng.com;lichong1@ifeng.com;guobj@ifeng.com;wangsh5@ifeng.com;yaoya@ifeng.com;jiangja@ifeng.com
+    host: test.com
+    from: test.com
+    to: test@test.com
     warntime: 2 #连续几次惩罚发报警邮件
 
 vertx:
@@ -67,13 +67,13 @@ vertx:
       queue-size: 1000
 
 kafka:
-  servers: alikafka-post-cn-2r42yyuab002-1-vpc.alikafka.aliyuncs.com:9092,alikafka-post-cn-2r42yyuab002-2-vpc.alikafka.aliyuncs.com:9092,alikafka-post-cn-2r42yyuab002-3-vpc.alikafka.aliyuncs.com:9092
+  servers: test.com:9092
   readtopic: ifs_service_test
-  writetopic: muta_mssage_bus_test
-  sdkwritetopic: muta_config_message_bus_test
+  writetopic: wwww_kkk
+  sdkwritetopic: www_tttt
   key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-  group-id: mutacenter
+  group-id: tst_gid
   auto-offset-reset: latest
   enable-auto-commit: true
   acks: 1

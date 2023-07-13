@@ -1,7 +1,7 @@
 package com.ifeng.ad.mutacenter.common.bean.mysqlmap;
 
 /**
- * Created by wangting3 on 2019/3/1.
+ * Created by  on 2019/3/1.
  */
 public class AppInfo {
     public String appId; //应用id

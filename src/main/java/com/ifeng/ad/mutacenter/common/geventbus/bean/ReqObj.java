@@ -3,7 +3,7 @@ package com.ifeng.ad.mutacenter.common.geventbus.bean;
 import java.util.Set;
 
 /**
- * Created by wangting3 on 2019/1/24.
+ * Created by  on 2019/1/24.
  */
 public class ReqObj {
     String dev;
