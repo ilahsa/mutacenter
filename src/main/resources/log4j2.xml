@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="60">
+    <Properties>
+        <Property name="SYS_NAME">mutacenter</Property>
+        <Property name="BASE_PATH">/data/logs/mutacenter</Property>
+        <Property name="SYS_PATH">${BASE_PATH}/sys</Property>
+        <Property name="REQUEST_PATH">${BASE_PATH}/req</Property>
+        <Property name="KAFKA_PATH">${BASE_PATH}/kafka</Property>
+        <Property name="ERROR_PATH">${BASE_PATH}/error</Property>
+        <property name="LOG_PATTERN">[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] [%c{10}:%M:%L] [%p] - %m%n</property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+        <RollingFile name="InfoRollingFile" fileName="${SYS_PATH}/${SYS_NAME}-sys.log" filePattern="${SYS_PATH}/${SYS_NAME}-sys-%d{yyyyMMdd}-%i.log">
+            <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="ACCEPT"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="500 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="60"/>
+        </RollingFile>
+
+        <RollingFile name="RequestRollingFile" fileName="${REQUEST_PATH}/${SYS_NAME}-req.log"
+                     filePattern="${REQUEST_PATH}/${SYS_NAME}-req-%d{yyyyMMdd}.log">
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss:SSS}]\t%m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="KafkaRollingFile" fileName="${KAFKA_PATH}/${SYS_NAME}-readkafka.log"
+                     filePattern="${KAFKA_PATH}/${SYS_NAME}-readkafka-%d{yyyyMMdd}.log">
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss:SSS}]\t%m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="KafkaWriteRollingFile" fileName="${KAFKA_PATH}/${SYS_NAME}-writekafka.log"
+                     filePattern="${KAFKA_PATH}/${SYS_NAME}-writekafka-%d{yyyyMMdd}.log">
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss:SSS}]\t%m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="ErrorRolling" filename="${ERROR_PATH}/${SYS_NAME}-err.log"
+                     filePattern="${ERROR_PATH}/${SYS_NAME}-err-%d{yyyyMMdd}-%i.log">
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="500 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="asyncReq" level="INFO" additivity="false">
+            <AppenderRef ref="RequestRollingFile"/>
+        </Logger>
+
+        <Logger name="asyncKafka" level="INFO" additivity="false">
+            <AppenderRef ref="KafkaRollingFile"/>
+        </Logger>
+
+        <Logger name="asyncKafkaWrite" level="INFO" additivity="false">
+            <AppenderRef ref="KafkaWriteRollingFile"/>
+        </Logger>
+
+        <Logger name="org.apache.kafka.clients" level="OFF"/>
+
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="InfoRollingFile"/>
+            <AppenderRef ref="ErrorRolling"/>
+        </Root>
+    </Loggers>
+</Configuration>
