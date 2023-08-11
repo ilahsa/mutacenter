@@ -54,218 +54,6 @@ public class CommonTest {
        // Jsoup.
     }
 
-    @Test
-    public void test6() throws Exception {
-        //获取DocumentBuilder
-        DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        //需要解析html
-        String html = "<table class='w782 comm lsjz'>\n" +
-                "\t<thead>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<th class='first'>净值日期</th>\n" +
-                "\t\t\t<th>单位净值</th>\n" +
-                "\t\t\t<th>累计净值</th>\n" +
-                "\t\t\t<th>日增长率</th>\n" +
-                "\t\t\t<th>申购状态</th>\n" +
-                "\t\t\t<th>赎回状态</th>\n" +
-                "\t\t\t<th class='tor last'>分红送配</th>\n" +
-                "\t\t</tr>\n" +
-                "\t</thead>\n" +
-                "\t<tbody>\n" +
-                "<tr>" +
-                "<td>2023-06-30</td>" +
-                "<td class='tor bold'>0.6526</td>" +
-                "<td class='tor bold'>10.4586</td>" +
-                "<td class='tor bold red'>0.71%</td>" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-29</td>" +
-                "<td class='tor bold'>0.6480</td>" +
-                "<td class='tor bold'>10.4402</td>" +
-                "\t\t\t<td class='tor bold bck'>0.00%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-28</td>" +
-                "\t\t\t<td class='tor bold'>0.6480</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4402</td>\n" +
-                "\t\t\t<td class='tor bold grn'>-0.51%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-27</td>" +
-                "\t\t\t<td class='tor bold'>0.6513</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4534</td>\n" +
-                "\t\t\t<td class='tor bold red'>1.23%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-26</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6434</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4218</td>\n" +
-                "\t\t\t<td class='tor bold grn'>-1.15%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-21</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6509</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4518</td>\n" +
-                "\t\t\t<td class='tor bold grn'>-2.11%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-20</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6649</td>\n" +
-                "\t\t\t<td class='tor bold'>10.5077</td>\n" +
-                "\t\t\t<td class='tor bold red'>0.08%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-19</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6644</td>\n" +
-                "\t\t\t<td class='tor bold'>10.5057</td>\n" +
-                "\t\t\t<td class='tor bold red'>0.06%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-16</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6640</td>\n" +
-                "\t\t\t<td class='tor bold'>10.5041</td>\n" +
-                "\t\t\t<td class='tor bold red'>0.70%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-15</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6594</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4857</td>\n" +
-                "\t\t\t<td class='tor bold red'>0.18%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-14</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6582</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4809</td>\n" +
-                "\t\t\t<td class='tor bold red'>0.24%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-13</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6566</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4746</td>\n" +
-                "\t\t\t<td class='tor bold red'>1.19%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-12</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6489</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4438</td>\n" +
-                "\t\t\t<td class='tor bold red'>0.05%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-09</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6486</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4426</td>\n" +
-                "\t\t\t<td class='tor bold red'>0.98%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-08</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6423</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4174</td>\n" +
-                "\t\t\t<td class='tor bold grn'>-0.05%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-07</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6426</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4186</td>\n" +
-                "\t\t\t<td class='tor bold bck'>0.00%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-06</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6426</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4186</td>\n" +
-                "\t\t\t<td class='tor bold grn'>-1.80%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-05</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6544</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4658</td>\n" +
-                "\t\t\t<td class='tor bold red'>0.29%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-02</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6525</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4582</td>\n" +
-                "\t\t\t<td class='tor bold red'>1.54%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td>2023-06-01</td>\n" +
-                "\t\t\t<td class='tor bold'>0.6426</td>\n" +
-                "\t\t\t<td class='tor bold'>10.4186</td>\n" +
-                "\t\t\t<td class='tor bold red'>0.03%</td>\n" +
-                "\t\t\t<td>限制大额申购</td>\n" +
-                "\t\t\t<td>开放赎回</td>\n" +
-                "\t\t\t<td class='red unbold'></td>\n" +
-                "\t\t</tr>\n" +
-                "\t</tbody>\n" +
-                "</table>";
-        html = html.replaceAll("\\n","").replaceAll("\\t","");
-
-        Document document = documentBuilder.parse(new ByteArrayInputStream( html.getBytes()));
-        System.out.println(document.getElementsByTagName("tbody"));
-        //document.getElementsByTagName("tr").item(5).getChildNodes().item(1).getTextContent();
-        NodeList tr = document.getElementsByTagName("tr");
-       for(int i=1;i<tr.getLength();i++){
-           System.out.println(tr.item(i).getChildNodes().item(0).getTextContent() + " ___ "+tr.item(i).getChildNodes().item(1).getTextContent());
-       }
-
-
-    }
 
     @Test
     public void updateJijinDataExTest(){
@@ -283,7 +71,11 @@ public class CommonTest {
             logger.info("开始更新 "+info.getName());
             String fundcode = info.getFundcode();
             //抓取数据并更新 从html 中读取的 最近一个月的数据
-            updateJijinDataEx(fundcode);
+            try{
+                updateJijinDataEx(fundcode);
+            }catch (Exception ex){
+                logger.info("更新异常 "+info.getName());
+            }
             //更新均值
             updateJZ(fundcode);
             //更新今天的估算值
@@ -332,6 +124,48 @@ public class CommonTest {
             System.out.println("过冷的绘图完成");
         }
     }
+
+    //获取今日精准更新失败的 并绘制图形
+    @Test
+    public void updateFaildToLineTest(){
+        //查询今日净值更新失败的
+        String sql = "select * from jijin where jzrq= SUBDATE(CURDATE(), 1) and fundcode not in(\n" +
+                "select fundcode from jijin where jzrq =date_format(now(), '%Y-%m-%d')\n" +
+                ") ";
+        List<JijinData> ds = mysqlService.find(sql,JijinData.class,null);
+        if(CollectionUtils.isNotEmpty(ds)){
+            System.out.println("今日净值更新失败的总共有 "+ds.size());
+            File file1 = new File("C:\\work\\java\\mutacenter\\gy");
+            try {
+                FileUtils.cleanDirectory(file1);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            ds.forEach(v->{
+                List<JijinData> ls = getJijinData(v.getFundcode());
+                Test2.setLanguageCN();
+                Test2.toLine(ls,"gy");
+            });
+            System.out.println("绘制图形完成");
+        }
+    }
+    //指定代码绘制图片
+    @Test
+    public void toLineByFundcode(){
+        File file1 = new File("C:\\work\\java\\mutacenter\\gy");
+        try {
+            FileUtils.cleanDirectory(file1);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        List<String> ids = Arrays.asList("014425");
+        ids.forEach(v->{
+            List<JijinData> ls = getJijinData(v);
+            Test2.setLanguageCN();
+            Test2.toLine(ls,"gy");
+        });
+        System.out.println("绘制图形完成");
+    }
     @Test
     public void getJijinDataTest(){
         String fundcode ="012349";
@@ -370,7 +204,7 @@ public class CommonTest {
         List<String> fundcodes = Arrays.asList("012349","011513","007531","012420","002978","003376","011309","013025","011113","161005","017489","160717",
                 "014413","007950","013396","007475","013108","006381","014597","013431","450009","001316","007346","001217","502010","000893","011473","001743",
                 "001301","202213","007497","016858","002315","016600","002671","005535","013430","519697","519002","519133","012635","012725","011228","163402","163417",
-                "014010","012767","005680","011437","010728");
+                "014010","012767","005680","011437","010728","005300");
         fundcodes.stream().forEach(v->updateJijinInfo(v));
     }
 
