@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ifeng.ad.mutacenter.common.exception.BusinessException;
 import com.ifeng.ad.mutacenter.common.exception.Errors;
@@ -72,7 +73,31 @@ public class JsonUtils {
 	public static String convert2Json(Object obj) {
 		return convert2Json(obj, true);
 	}
-	
+
+	/***
+	 * 将json字符串转换为对象list
+	 * @param json 需要转换的json字符串
+	 * @param clazz
+	 * @param <T>
+	 * @return
+	 */
+	public static <T> List<T> json2list(String json, Class<T> clazz) {
+		// 如果Json无内容，直接返回空
+		if (StringUtils.isEmpty(json)) {
+			return null;
+		}
+		try {
+			return (List<T>)defaultMapper.readValue(json, getCollectionType(List.class, clazz));
+
+		} catch (IOException e) {
+			//throw new BusinessException(Errors.INTERNAL_ERROR, ErrInfo.NO_AD, "将Json串转换为列表对象错误，转换串：{},转换类名：{}", json, clazz);
+		}
+		return null;
+	}
+	public static JavaType getCollectionType(Class<?> collectionClass, Class<?>... elementClasses) {
+		return defaultMapper.getTypeFactory().constructParametricType(collectionClass, elementClasses);
+	}
+
 	/**
 	 * 功能描述: 将对象转换为Json字符串
 	 *   

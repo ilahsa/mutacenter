@@ -129,9 +129,11 @@ public class CommonTest {
     @Test
     public void updateFaildToLineTest(){
         //查询今日净值更新失败的
-        String sql = "select * from jijin where jzrq= SUBDATE(CURDATE(), 1) and fundcode not in(\n" +
+        String sql = " select * from jijin where -- jzrq= SUBDATE(CURDATE(), 1) and\n" +
+                " fundcode not in(\n" +
                 "select fundcode from jijin where jzrq =date_format(now(), '%Y-%m-%d')\n" +
-                ") ";
+                ") order by id desc \n" +
+                "limit 1; ";
         List<JijinData> ds = mysqlService.find(sql,JijinData.class,null);
         if(CollectionUtils.isNotEmpty(ds)){
             System.out.println("今日净值更新失败的总共有 "+ds.size());
