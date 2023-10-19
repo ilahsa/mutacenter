@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.ifeng.ad.mutacenter.lianghua.GupiaoData;
 import com.ifeng.ad.mutacenter.lianghua.JijinData;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtils;
@@ -158,6 +159,42 @@ public class Test2 {
         }
     }
 
+    public static void toLine(List<GupiaoData> ls, String dir,String name) {
+        String fundcode = ls.get(0).getCode();
+        TimeSeries jz = new TimeSeries("jz");
+        TimeSeries d20jz = new TimeSeries("d20jz");
+        TimeSeries grz = new TimeSeries("grz");
+        TimeSeries glz = new TimeSeries("glz");
+        for(GupiaoData d:ls){
+            jz.add(new TimeSeriesDataItem(new Day(string2Date(d.getDay().substring(0,10))), new Double(d.getMa_price5())));
+            d20jz.add(new TimeSeriesDataItem(new Day(string2Date(d.getDay().substring(0,10))), new Double(d.getD20jz())));
+            grz.add(new TimeSeriesDataItem(new Day(string2Date(d.getDay().substring(0,10))), new Double(d.getGrz())));
+            glz.add(new TimeSeriesDataItem(new Day(string2Date(d.getDay().substring(0,10))), new Double(d.getGlz())));
+        }
+
+        TimeSeriesCollection dataSet = new TimeSeriesCollection();
+        dataSet.addSeries(jz);
+        dataSet.addSeries(d20jz);
+        dataSet.addSeries(grz);
+        dataSet.addSeries(glz);
+
+        JFreeChart chart = ChartFactory.createTimeSeriesChart(name, "Date", "Price", dataSet, true, true, false);
+        FileOutputStream out = null;
+        try {
+            out = new FileOutputStream(String.format("C:\\work\\java\\mutacenter\\%s\\line_%s.jpg",dir,fundcode));
+            ChartUtils.writeChartAsJPEG(out, 0.5f, chart, 1200, 900, null);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                out.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
     /**
      * 测试饼状图
      */
